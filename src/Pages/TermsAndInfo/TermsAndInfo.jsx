@@ -46,7 +46,7 @@ const TermsAndInfo = () => {
                   clipRule='evenodd'
                 />
               </svg>
-              <h2 className='text-lg md:text-xl font-bold text-gray-900'>
+              <h2 className='text-lg md:text-xl font-medium text-gray-900'>
                 Deposit & Late Fee Policy
               </h2>
             </div>
@@ -68,7 +68,7 @@ const TermsAndInfo = () => {
                 </svg>
               </div>
               <div>
-                <h3 className='font-bold text-gray-900 mb-1'>50% Deposit Required</h3>
+                <h3 className='font-medium text-gray-900 mb-1'>50% Deposit Required</h3>
                 <p className='text-gray-600 text-sm'>
                   A 50% deposit is required to secure your appointment.
                 </p>
@@ -90,7 +90,7 @@ const TermsAndInfo = () => {
                 </svg>
               </div>
               <div>
-                <h3 className='font-bold text-gray-900 mb-1'>Late Fees</h3>
+                <h3 className='font-medium text-gray-900 mb-1'>Late Fees</h3>
                 <p className='text-gray-600 text-sm'>
                   A $20 late fee will be applied for every 20 minutes you are delayed. Please plan to arrive on time to ensure we have adequate time for your service.
                 </p>
@@ -112,7 +112,7 @@ const TermsAndInfo = () => {
                 </svg>
               </div>
               <div>
-                <h3 className='font-bold text-gray-900 mb-1'>Cancellations & Refunds</h3>
+                <h3 className='font-medium text-gray-900 mb-1'>Cancellations & Refunds</h3>
                 <p className='text-gray-600 text-sm'>
                   We require a 24-hour notice for any cancellations. Please note that all deposits are strictly non-refundable.
                 </p>
@@ -135,7 +135,7 @@ const TermsAndInfo = () => {
                   clipRule='evenodd'
                 />
               </svg>
-              <h2 className='text-lg md:text-xl font-bold text-gray-900'>
+              <h2 className='text-lg md:text-xl font-medium text-gray-900'>
                 Location & Travel Inquiry
               </h2>
             </div>
@@ -160,7 +160,7 @@ const TermsAndInfo = () => {
                 </svg>
               </div>
               <div>
-                <h3 className='font-bold text-gray-900 mb-1'>Travel Requirements</h3>
+                <h3 className='font-medium text-gray-900 mb-1'>Travel Requirements</h3>
                 <p className='text-gray-600 text-sm'>
                   Travel services are available for groups of 4 or more people minimum. Travel fees start at $100+ depending on the location and distance.
                 </p>
@@ -182,7 +182,7 @@ const TermsAndInfo = () => {
                 </svg>
               </div>
               <div>
-                <h3 className='font-bold text-gray-900 mb-1'>Early Appointments</h3>
+                <h3 className='font-medium text-gray-900 mb-1'>Early Appointments</h3>
                 <p className='text-gray-600 text-sm'>
                   Any appointments scheduled for 8:00 AM or earlier will incur an early appointment inconvenience fee.
                 </p>
@@ -190,7 +190,7 @@ const TermsAndInfo = () => {
             </div>
 
             <div className='bg-rose-50 p-4 border border-rose-200'>
-              <h3 className='font-bold text-gray-900 mb-2'>How to Inquire for Travel:</h3>
+              <h3 className='font-medium text-gray-900 mb-2'>How to Inquire for Travel:</h3>
               <p className='text-gray-600 text-sm'>
                 For all travel inquiries, please reach out via WhatsApp with your event details, location, and number of people requiring services.
               </p>

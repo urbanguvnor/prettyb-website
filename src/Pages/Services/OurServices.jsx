@@ -1,10 +1,10 @@
-
 import { img1, img2, img3, img4 } from "../../imports";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
 const OurServices = () => {
   const [selectedService, setSelectedService] = useState(null);
+  const [activeOverlay, setActiveOverlay] = useState(null);
 
   const services = [
     {
@@ -135,10 +135,24 @@ const OurServices = () => {
                 <img
                   src={service.image}
                   alt={service.title}
+                  onClick={() =>
+                    setActiveOverlay(
+                      activeOverlay === service.id ? null : service.id,
+                    )
+                  }
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                 />
 
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-300 flex items-center justify-center">
+                <div
+                  className={`absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300
+    ${
+      activeOverlay === service.id
+        ? "opacity-100 pointer-events-auto"
+        : "opacity-0 pointer-events-none"
+    }
+    md:group-hover:opacity-100 md:group-hover:pointer-events-auto
+  `}
+                >
                   <Link
                     to="/terms"
                     className="bg-transparent border-2 border-white text-white px-6 py-2.5 hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm font-medium"
@@ -149,7 +163,7 @@ const OurServices = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl md:text-lg font-bold text-gray-900 mb-3">
+                <h3 className="text-xl md:text-lg font-medium text-gray-900 mb-3">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm md:text-sm">
@@ -157,7 +171,7 @@ const OurServices = () => {
                 </p>
 
                 <button
-                  onClick={() => {console.log(service);setSelectedService(service)}}
+                  onClick={() => setSelectedService(service)}
                   className="inline-flex items-center text-rose-400 hover:text-rose-500 text-sm mb-2 transition-colors"
                 >
                   See More

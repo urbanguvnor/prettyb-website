@@ -1,196 +1,213 @@
-import React from 'react'
-import { img1, img2, img3, img4 } from '../../imports'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { img1, img2, img3, img4 } from "../../imports";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const OurServices = () => {
+  const [activeOverlay, setActiveOverlay] = useState(null);
+
   const services = [
     {
       id: 1,
       image: img1,
-      title: 'Simple Beat with Lashes',
-      description: 'Eye makeup focus with lash application',
-      duration: '45 mins',
-      price: '$75'
+      title: "Simple Beat with Lashes",
+      description: "Eye makeup focus with lash application",
+      duration: "45 mins",
+      price: "$75",
     },
     {
       id: 2,
       image: img2,
-      title: 'Full Face with Lashes',
-      description: 'Complete makeup coverage including lashes',
-      duration: '60 mins',
-      price: '$95'
+      title: "Full Face with Lashes",
+      description: "Complete makeup coverage including lashes",
+      duration: "60 mins",
+      price: "$95",
     },
     {
       id: 3,
       image: img2,
-      title: 'Full Face with Lashes and Gele',
-      description: 'Full makeup plus traditional gele styling',
-      duration: '90 mins',
-      price: '$145'
+      title: "Full Face with Lashes and Gele",
+      description: "Full makeup plus traditional gele styling",
+      duration: "90 mins",
+      price: "$145",
     },
     {
       id: 4,
       image: img4,
-      title: 'Photoshoot Service',
-      description: 'Professional makeup for photo sessions.',
-      duration: '74 mins',
-      price: '$120'
+      title: "Photoshoot Service",
+      description: "Professional makeup for photo sessions.",
+      duration: "74 mins",
+      price: "$120",
     },
     {
       id: 5,
       image: img4,
-      title: 'Home/Hotel Service Makeup',
-      description: 'On-location makeup service with travel.',
-      duration: '60 mins',
-      price: '$110'
+      title: "Home/Hotel Service Makeup",
+      description: "On-location makeup service with travel.",
+      duration: "60 mins",
+      price: "$110",
     },
     {
       id: 6,
       image: img1,
-      title: 'Bridal Glam Consultation',
-      description: 'Pre-wedding makeup consultation and planning.',
-      duration: '30 mins',
-      price: '$50'
+      title: "Bridal Glam Consultation",
+      description: "Pre-wedding makeup consultation and planning.",
+      duration: "30 mins",
+      price: "$50",
     },
     {
       id: 7,
       image: img1,
-      title: 'Bridal Glam',
-      description: 'Full bridal makeup application.',
-      duration: '90 mins',
-      price: '$200'
+      title: "Bridal Glam",
+      description: "Full bridal makeup application.",
+      duration: "90 mins",
+      price: "$200",
     },
     {
       id: 8,
       image: img3,
-      title: 'Bridal Party Glam Soft',
-      description: 'Soft glam makeup for bridesmaids.',
-      duration: '60 mins',
-      price: '$85'
+      title: "Bridal Party Glam Soft",
+      description: "Soft glam makeup for bridesmaids.",
+      duration: "60 mins",
+      price: "$85",
     },
     {
       id: 9,
       image: img3,
-      title: 'Bridal Party Glam Full',
-      description: 'Full glam makeup for bridesmaids.',
-      duration: '75 mins',
-      price: '$110'
+      title: "Bridal Party Glam Full",
+      description: "Full glam makeup for bridesmaids.",
+      duration: "75 mins",
+      price: "$110",
     },
     {
       id: 10,
       image: img2,
-      title: 'Bridal Gele',
-      description: 'Traditional gele styling for bride.',
-      duration: '45 mins',
-      price: '$80'
+      title: "Bridal Gele",
+      description: "Traditional gele styling for bride.",
+      duration: "45 mins",
+      price: "$80",
     },
     {
       id: 11,
       image: img2,
-      title: 'Bridesmaid Gele',
-      description: 'Traditional gele styling for bridesmaids.',
-      duration: '30 mins',
-      price: '$50'
+      title: "Bridesmaid Gele",
+      description: "Traditional gele styling for bridesmaids.",
+      duration: "30 mins",
+      price: "$50",
     },
     {
       id: 12,
       image: img2,
-      title: 'Owambe Gele',
-      description: 'Traditional gele for special occasions.',
-      duration: '45 mins',
-      price: '$75'
+      title: "Owambe Gele",
+      description: "Traditional gele for special occasions.",
+      duration: "45 mins",
+      price: "$75",
     },
     {
       id: 13,
       image: img2,
-      title: 'Mother of Bride/Groom Gele',
-      description: 'Traditional gele for mothers.',
-      duration: '40 mins',
-      price: '$70'
+      title: "Mother of Bride/Groom Gele",
+      description: "Traditional gele for mothers.",
+      duration: "40 mins",
+      price: "$70",
     },
-  ]
+  ];
 
   return (
-    <section className='w-full py-16 md:py-24 bg-gray-50'>
-      <div className='max-w-7xl mx-auto px-6 lg:px-8'>
-        <div className='text-center mb-12 md:mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4 custom-font'>
+    <section className="w-full py-16 md:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 custom-font">
             Our Services
           </h2>
-          <p className='text-gray-600 text-lg md:text-xl max-w-3xl mx-auto'>
+          <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
             Professional makeup services tailored to your needs and occasion
           </p>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service) => (
             <div
               key={service.id}
-              className='bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300'
+              className="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
-              <div className='relative h-94 md:h-102 overflow-hidden group'>
+              <div className="relative h-94 md:h-102 overflow-hidden group">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className='w-full h-full object-cover hover:scale-110 transition-transform duration-300'
+                  onClick={() =>
+                    setActiveOverlay(
+                      activeOverlay === service.id ? null : service.id,
+                    )
+                  }
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                 />
-                
-                <div className='absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
+
+                <div
+                  className={`absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300
+    ${
+      activeOverlay === service.id
+        ? "opacity-100 pointer-events-auto"
+        : "opacity-0 pointer-events-none"
+    }
+    md:group-hover:opacity-100 md:group-hover:pointer-events-auto
+  `}
+                >
                   <Link
-                    to='/terms'
-                    className='bg-transparent border-2 border-white text-white px-6 py-2.5 hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm font-medium'
+                    to="/terms"
+                    className="bg-transparent border-2 border-white text-white px-6 py-2.5 hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm font-medium"
                   >
                     Book Appointment
                   </Link>
                 </div>
               </div>
 
-              <div className='p-6'>
-                <h3 className='text-xl md:text-lg font-bold text-gray-900 mb-3'>
+              <div className="p-6">
+                <h3 className="text-xl md:text-lg font-medium text-gray-900 mb-3">
                   {service.title}
                 </h3>
-                <p className='text-gray-600 mb-4 text-sm md:text-sm'>
+                <p className="text-gray-600 mb-4 text-sm md:text-sm">
                   {service.description}
                 </p>
 
                 <Link
-                  to='/services'
-                  className='inline-flex items-center text-rose-400 hover:text-rose-500 text-sm mb-2 transition-colors'
+                  to="/services"
+                  className="inline-flex items-center text-rose-400 hover:text-rose-500 text-sm mb-2 transition-colors"
                 >
                   See More
                   <svg
-                    className='w-4 h-4 ml-1'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
+                    className="w-4 h-4 ml-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
                     <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       strokeWidth={2}
-                      d='M9 5l7 7-7 7'
+                      d="M9 5l7 7-7 7"
                     />
                   </svg>
                 </Link>
 
-                <div className='flex items-center justify-between pt-2 border-t border-gray-200'>
-                  <div className='flex items-center text-gray-600'>
+                <div className="flex items-center justify-between pt-2 border-t border-gray-200">
+                  <div className="flex items-center text-gray-600">
                     <svg
-                      className='w-5 h-4 mr-2'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
+                      className="w-5 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
                       <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         strokeWidth={2}
-                        d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span className='text-xs'>{service.duration}</span>
+                    <span className="text-xs">{service.duration}</span>
                   </div>
-                  <div className='flex items-center text-gray-900 font-bold text-sm'>
+                  <div className="flex items-center text-gray-900 font-bold text-sm">
                     <span>{service.price}</span>
                   </div>
                 </div>
@@ -200,7 +217,7 @@ const OurServices = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default OurServices
+export default OurServices;

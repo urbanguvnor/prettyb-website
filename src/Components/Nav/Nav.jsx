@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -44,9 +46,28 @@ const Nav = () => {
     };
   }, []);
 
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
+  const handleLinkClick = (e, href) => {
+    e.preventDefault()
+    setIsOpen(false)
+    
+    // If not on homepage, navigate to homepage first, then scroll
+    if (location.pathname !== '/') {
+      navigate('/')
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      // Already on homepage, just scroll
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
@@ -64,6 +85,7 @@ const Nav = () => {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className={`text-gray-700 hover:text-rose-400 transition-colors font-medium text-sm ${
                   activeSection === link.href.substring(1)
                     ? "border-rose-400 text-rose-400"
