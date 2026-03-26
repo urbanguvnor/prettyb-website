@@ -473,10 +473,10 @@ export default function BookingPage() {
       <div className="booking-bg" style={{ paddingBottom: "80px" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto", padding: "0 20px" }}>
           {/* Header */}
-          <div style={{ textAlign: "center", padding: "60px 0 40px" }}>
+          <div className="custom-font" style={{ textAlign: "center", padding: "60px 0 40px" }}>
             <h1
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                
                 fontSize: "clamp(36px, 6vw, 52px)",
                 fontWeight: 700,
                 letterSpacing: "-0.02em",

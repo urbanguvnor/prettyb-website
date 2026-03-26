@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-12 mb-12'>
           {/* Brand Section */}
           <div>
-            <h3 className='text-2xl md:text-2xl font-bold mb-4'>
+            <h3 className='text-2xl md:text-2xl font-bold mb-4 custom-font'>
               <span className='text-rose-300'>Pretty</span>
               <span className='text-rose-400'>BMUA</span>
             </h3>
@@ -19,7 +20,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className='text-gray-900 font-base text-lg mb-6'>
+            <h4 className='text-gray-900 font-base text-lg mb-6 custom-font'>
               QUICK LINKS
             </h4>
             <ul className='space-y-3'>
@@ -34,21 +35,21 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href='#terms' className='text-gray-600 hover:text-rose-400 transition-colors text-sm'>
+                <Link to='/terms' className='text-gray-600 hover:text-rose-400 transition-colors text-sm'>
                   Terms & Info
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#book' className='text-gray-600 hover:text-rose-400 transition-colors text-sm'>
+                <Link to='/terms' className='text-gray-600 hover:text-rose-400 transition-colors text-sm'>
                   Book Appointment
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact Us */}
           <div>
-            <h4 className='text-gray-900 font-base text-lg mb-6'>
+            <h4 className='text-gray-900 font-base text-lg mb-6 custom-font'>
               CONTACT US
             </h4>
             <ul className='space-y-4'>

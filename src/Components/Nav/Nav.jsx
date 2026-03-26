@@ -53,7 +53,7 @@ const Nav = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-18">
           <Link to="/" className="text-2xl md:text-3xl font-bold">
-            <div className="text-2xl md:text-2xl font-bold">
+            <div className="text-2xl md:text-2xl font-bold custom-font">
               <span className="text-rose-300">Pretty</span>
               <span className="text-rose-300">BMUA</span>
             </div>
@@ -74,7 +74,7 @@ const Nav = () => {
               </a>
             ))}
             <Link
-              to="/book"
+              to="/terms"
               className="bg-rose-300 hover:bg-rose-400 text-sm text-black px-6 py-2.5 transition-colors font-medium"
             >
               Book Appointment
@@ -121,7 +121,7 @@ const Nav = () => {
                 </a>
               ))}
               <Link
-                to="/book"
+                to="/terms"
                 onClick={handleLinkClick}
                 className="bg-rose-300 hover:bg-rose-400 text-black px-6 py-2.5 transition-colors font-medium text-center"
               >

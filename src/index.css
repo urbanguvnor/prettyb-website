@@ -12,10 +12,19 @@ body {
     background-color: '#f9fafb';
 }
 
-h1 {
-  font-family: "DM Sans", sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'OrpheusProFont';
+  src: url('./assets/Orpheus-Pro.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: 0.02em;
+}
+
+.custom-font {
+  font-family: 'OrpheusProFont', serif;
 }

@@ -98,7 +98,7 @@ const OurServices = () => {
     {
       id: 12,
       image: img2,
-      title: "Owmabe Gele",
+      title: "Owambe Gele",
       description: "Traditional gele for special occasions.",
       duration: "45 mins",
       price: "$75",
@@ -117,10 +117,10 @@ const OurServices = () => {
     <section className="w-full py-16 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 custom-font">
             Our Services
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
+          <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto font-serif">
             Professional makeup services tailored to your needs and occasion
           </p>
         </div>
@@ -139,12 +139,12 @@ const OurServices = () => {
                 />
 
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-300 flex items-center justify-center">
-                  <a
-                    href="#book"
+                  <Link
+                    to="/terms"
                     className="bg-transparent border-2 border-white text-white px-6 py-2.5 hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm font-medium"
                   >
                     Book Appointment
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -250,7 +250,7 @@ const OurServices = () => {
                   Close
                 </button>
 
-                <Link to="/book" className="bg-rose-300 text-black px-6 py-2">
+                <Link to="/terms" className="bg-rose-300 text-black px-6 py-2">
                   Book This Service
                 </Link>
               </div>

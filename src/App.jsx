@@ -6,6 +6,7 @@ import OurServices from "./Pages/Services/OurServices";
 import Nav from "./Components/Nav/Nav";
 import ScrollToTop from "./Components/ScrollToTop";
 import BookingPage from "./Pages/Booking/Booking";
+import TermsAndInfo from "./Pages/TermsAndInfo/TermsAndInfo";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/services" element={<OurServices />} />
         <Route path="/book" element={<BookingPage />} /> 
+        <Route path="/terms" element={<TermsAndInfo />} /> 
       </Routes>
       <Footer/>
     </div>

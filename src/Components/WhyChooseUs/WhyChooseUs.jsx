@@ -27,7 +27,7 @@ const WhyChooseUs = () => {
   return (
     <section className="bg-rose-50 py-20 px-6 md:px-20">
       <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-3">
+        <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-3 custom-font">
           Why Choose Us
         </h2>
         <p className="text-gray-600 text-sm md:text-base">
