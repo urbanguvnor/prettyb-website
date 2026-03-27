@@ -9,4 +9,8 @@ import video2 from './assets/final/IMG_8211.mp4'
 import video3 from './assets/final/IMG_8814.mp4'
 import video4 from './assets/final/IMG_9063.mp4'
 
-export { img1, img2, img3, img4, img6, video1, video2, video3, video4 }
+import video2thumb from './assets/final/video2thumb.png'
+import video3thumb from './assets/final/video3thumb.png'
+import video4thumb from './assets/final/video4thumb.png'
+
+export { img1, img2, img3, img4, img6, video1, video2, video3, video4, video2thumb, video3thumb, video4thumb }

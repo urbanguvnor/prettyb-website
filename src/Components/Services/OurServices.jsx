@@ -1,7 +1,8 @@
 import React from "react";
-import { img1, img2, img3, img4, video4, video3, video2 } from "../../imports";
+import { img1, img2, img3, img4, video4, video3, video2, video2thumb, video3thumb, video4thumb } from "../../imports";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import VideoWithFallback from "../VideoWithFallback";
 
 const OurServices = () => {
   const [activeOverlay, setActiveOverlay] = useState(null);
@@ -11,6 +12,7 @@ const OurServices = () => {
     {
       id: 1,
       media: video4,
+      thumbnail: video4thumb,
       mediaType: "video",
       title: "Simple Beat with Lashes",
       description: "Eye makeup focus with lash application",
@@ -20,6 +22,7 @@ const OurServices = () => {
     {
       id: 2,
       media: video3,
+      thumbnail: video3thumb,
       mediaType: "video",
       title: "Full Face with Lashes",
       description: "Complete makeup coverage including lashes",
@@ -47,6 +50,7 @@ const OurServices = () => {
     {
       id: 5,
       media: video2,
+      thumbnail: video2thumb,
       mediaType: "video",
       title: "Home/Hotel Service Makeup",
       description: "On-location makeup service with travel.",
@@ -65,6 +69,7 @@ const OurServices = () => {
     {
       id: 7,
       media: video3,
+      thumbnail: video3thumb,
       mediaType: "video",
       title: "Bridal Glam",
       description: "Full bridal makeup application.",
@@ -146,20 +151,17 @@ const OurServices = () => {
               <div className="relative h-64 md:h-72 overflow-hidden group">
                 {/* Video */}
                 {service.mediaType === "video" && (
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <VideoWithFallback
+                    src={service.media}
+                    thumbnail={service.thumbnail}
+                    alt={service.title}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                     onClick={() =>
                       setActiveOverlay(
                         activeOverlay === service.id ? null : service.id
                       )
                     }
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                  >
-                    <source src={service.media} type="video/mp4" />
-                  </video>
+                  />
                 )}
 
                 {/* Image */}
