@@ -11,6 +11,7 @@ import {
   isBefore,
   startOfDay,
 } from "date-fns";
+import { useLocation } from "react-router-dom";
 
 // ─── Icons (inline SVG components) ─────────────────────────────────────────
 
@@ -297,19 +298,20 @@ const inputClass =
 const labelClass =
   "block text-xs font-semibold capitalize tracking-wider text-stone-500 mb-1.5";
 
-// ─── Main Component ──────────────────────────────────────────────────────────
 
 export default function BookingPage() {
   const { toasts, toast } = useToast();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [touched, setTouched] = useState({});
+  const location = useLocation();
+  const preSelectedService = location.state?.selectedService;
 
   const [values, setValues] = useState({
     customerName: "",
     contactMethod: "phone",
     contactValue: "",
-    service: "",
+    service: preSelectedService || "",
     notes: "",
     preferredDate: null,
     preferredTime: "",

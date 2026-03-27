@@ -1,10 +1,11 @@
 import { img1, img2, img3, img4 } from "../../imports";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 
 const OurServices = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [activeOverlay, setActiveOverlay] = useState(null);
+  const navigate = useNavigate();
 
   const services = [
     {
@@ -113,6 +114,11 @@ const OurServices = () => {
     },
   ];
 
+  const handleBookAppointment = (serviceName) => {
+    // Navigate to terms page with the selected service
+    navigate("/terms", { state: { selectedService: serviceName } });
+  };
+
   return (
     <section className="w-full py-16 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -153,12 +159,12 @@ const OurServices = () => {
     md:group-hover:opacity-100 md:group-hover:pointer-events-auto
   `}
                 >
-                  <Link
-                    to="/terms"
+                  <button
+                    onClick={() => handleBookAppointment(service.title)}
                     className="bg-transparent border-2 border-white text-white px-6 py-2.5 hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm font-medium"
                   >
                     Book Appointment
-                  </Link>
+                  </button>
                 </div>
               </div>
 
@@ -264,9 +270,12 @@ const OurServices = () => {
                   Close
                 </button>
 
-                <Link to="/terms" className="bg-rose-300 text-black px-6 py-2">
-                  Book This Service
-                </Link>
+                <button
+                    onClick={() => handleBookAppointment(selectedService.title)}
+                    className="bg-rose-400 border-2 border-white text-white px-6 py-2.5 hover:bg-rose-500  transition-all duration-300 text-sm font-medium"
+                  >
+                    Book Appointment
+                  </button>
               </div>
             </div>
           </div>

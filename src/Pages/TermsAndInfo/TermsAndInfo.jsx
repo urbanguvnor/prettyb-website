@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
 const TermsAndInfo = () => {
+    const location = useLocation();
+  const selectedService = location.state?.selectedService;
+
   return (
     <div className='min-h-screen bg-gray-50 py-12 px-4 md:px-6 lg:px-8'>
       <div className='max-w-2xl mx-auto'>
@@ -221,6 +225,7 @@ const TermsAndInfo = () => {
 
           <Link
             to='/book'
+            state={{ selectedService }}
             className='bg-rose-300 hover:bg-rose-400 text-gray-900 px-8 py-3 transition-colors font-medium flex items-center shadow-md'
           >
             I Agree & Continue to Booking
