@@ -238,15 +238,15 @@ const SERVICES = [
   "Full Face with Lashes",
   "Full Face with Lashes and Gele",
   "Photoshoot Service",
-  "Home/Hotel Service Makeup (Add-On)",
-  "Bridal Glam — Consultation",
+  "Home/Hotel Service Makeup",
+  "Bridal Glam Consultation",
   "Bridal Glam",
-  "Bridal Party Glam — Soft Glam Look",
-  "Bridal Party Glam — Full Glam Look",
-  "Bride Gele (Bridal Looks)",
-  "Bridesmaid (Gele Tying)",
-  "Owambe Gele (Gele Tying)",
-  "Mother of the Bride/Groom (Gele Tying)",
+  "Bridal Party Glam Soft",
+  "Bridal Party Glam Full",
+  "Bride Gele",
+  "Bridesmaid Gele",
+  "Owambe Gele",
+  "Mother of Bride/Groom Gele",
 ];
 
 const isOutsideStandardHours = (timeStr) => {

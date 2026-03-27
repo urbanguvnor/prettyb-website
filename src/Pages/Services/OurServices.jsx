@@ -83,7 +83,7 @@ const OurServices = () => {
     {
       id: 10,
       image: img2,
-      title: "Bridal Gele",
+      title: "Bride Gele",
       description: "Traditional gele styling for bride.",
       duration: "45 mins",
       price: "$80",
