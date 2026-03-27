@@ -40,7 +40,7 @@ const OurServices = () => {
       media: img4,
       mediaType: "image",
       title: "Photoshoot Service",
-      description: "Professional makeup for photo sessions.",
+      description: "Make up with one outfit is $250 \nMake up with two outfits is $350 \nMake up with three outfits is $450",
       duration: "74 mins",
       price: "$250-$540",
     },
@@ -214,7 +214,7 @@ const OurServices = () => {
                 <h3 className="text-xl md:text-lg font-medium text-gray-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-4 text-sm md:text-sm">
+                <p className="text-gray-600 mb-4 text-sm md:text-sm whitespace-pre-line">
                   {service.description}
                 </p>
 
