@@ -1,5 +1,5 @@
-import { img1, img2, img3, img4 } from "../../imports";
-import { Link, useNavigate } from "react-router-dom";
+import { img1, img2, img3, img4, video4, video3, video2 } from "../../imports";
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 
 const OurServices = () => {
@@ -10,112 +10,118 @@ const OurServices = () => {
   const services = [
     {
       id: 1,
-      image: img1,
+      media: video4,
+      mediaType: "video",
       title: "Simple Beat with Lashes",
       description: "Eye makeup focus with lash application",
       duration: "45 mins",
-      price: "$75",
+      price: "$100",
     },
     {
       id: 2,
-      image: img2,
+      media: video3,
+      mediaType: "video",
       title: "Full Face with Lashes",
       description: "Complete makeup coverage including lashes",
       duration: "60 mins",
-      price: "$95",
-    },
-    {
-      id: 3,
-      image: img2,
-      title: "Full Face with Lashes and Gele",
-      description: "Full makeup plus traditional gele styling",
-      duration: "90 mins",
-      price: "$145",
-    },
-    {
-      id: 4,
-      image: img4,
-      title: "Photoshoot Service",
-      description: "Professional makeup for photo sessions.",
-      duration: "74 mins",
       price: "$120",
     },
     {
+      id: 3,
+      media: img2,
+      mediaType: "image",
+      title: "Full Face with Lashes and Gele",
+      description: "Full makeup plus traditional gele styling",
+      duration: "90 mins",
+      price: "$140",
+    },
+    {
+      id: 4,
+      media: img4,
+      mediaType: "image",
+      title: "Photoshoot Service",
+      description: "Professional makeup for photo sessions.",
+      duration: "74 mins",
+      price: "$250-$540",
+    },
+    {
       id: 5,
-      image: img4,
+      media: video2,
+      mediaType: "video",
       title: "Home/Hotel Service Makeup",
       description: "On-location makeup service with travel.",
       duration: "60 mins",
-      price: "$110",
+      price: "Contact for Pricing",
     },
     {
       id: 6,
-      image: img1,
+      media: img1,
+      mediaType: "image",
       title: "Bridal Glam Consultation",
       description: "Pre-wedding makeup consultation and planning.",
       duration: "30 mins",
-      price: "$50",
+      price: "Contact for Pricing",
     },
     {
       id: 7,
-      image: img1,
+      media: video3,
+      mediaType: "video",
       title: "Bridal Glam",
       description: "Full bridal makeup application.",
       duration: "90 mins",
-      price: "$200",
+      price: "Starting at $500",
     },
     {
       id: 8,
-      image: img3,
+      mediaType: "none",
       title: "Bridal Party Glam Soft",
       description: "Soft glam makeup for bridesmaids.",
       duration: "60 mins",
-      price: "$85",
+      price: "Contact for Pricing",
     },
     {
       id: 9,
-      image: img3,
+      mediaType: "none",
       title: "Bridal Party Glam Full",
       description: "Full glam makeup for bridesmaids.",
       duration: "75 mins",
-      price: "$110",
+      price: "Contact for Pricing",
     },
     {
       id: 10,
-      image: img2,
+      mediaType: "none",
       title: "Bride Gele",
       description: "Traditional gele styling for bride.",
       duration: "45 mins",
-      price: "$80",
+      price: "Contact for Pricing",
     },
     {
       id: 11,
-      image: img2,
+      mediaType: "none",
       title: "Bridesmaid Gele",
       description: "Traditional gele styling for bridesmaids.",
       duration: "30 mins",
-      price: "$50",
+      price: "Contact for Pricing",
     },
     {
       id: 12,
-      image: img2,
+      mediaType: "none",
       title: "Owambe Gele",
       description: "Traditional gele for special occasions.",
       duration: "45 mins",
-      price: "$75",
+      price: "Contact for Pricing",
     },
     {
       id: 13,
-      image: img2,
+      mediaType: "none",
       title: "Mother of Bride/Groom Gele",
       description: "Traditional gele for mothers.",
       duration: "40 mins",
-      price: "$70",
+      price: "Contact for Pricing",
     },
   ];
 
   const handleBookAppointment = (serviceName) => {
-    // Navigate to terms page with the selected service
     navigate("/terms", { state: { selectedService: serviceName } });
   };
 
@@ -137,27 +143,73 @@ const OurServices = () => {
               key={service.id}
               className="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative h-94 md:h-102 overflow-hidden group">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  onClick={() =>
-                    setActiveOverlay(
-                      activeOverlay === service.id ? null : service.id,
-                    )
-                  }
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                />
+              <div className="relative h-64 md:h-72 overflow-hidden group">
+                {/* Video */}
+                {service.mediaType === "video" && (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    onClick={() =>
+                      setActiveOverlay(
+                        activeOverlay === service.id ? null : service.id
+                      )
+                    }
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  >
+                    <source src={service.media} type="video/mp4" />
+                  </video>
+                )}
 
+                {/* Image */}
+                {service.mediaType === "image" && (
+                  <img
+                    src={service.media}
+                    alt={service.title}
+                    onClick={() =>
+                      setActiveOverlay(
+                        activeOverlay === service.id ? null : service.id
+                      )
+                    }
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                )}
+
+                {/* No Media - Gradient Placeholder */}
+                {service.mediaType === "none" && (
+                  <div
+                    onClick={() =>
+                      setActiveOverlay(
+                        activeOverlay === service.id ? null : service.id
+                      )
+                    }
+                    className="w-full h-full bg-gradient-to-br from-rose-200 via-rose-300 to-rose-400 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                  >
+                    <svg
+                      className="w-16 h-16 text-white opacity-40"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                )}
+
+                {/* Overlay */}
                 <div
                   className={`absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300
-    ${
-      activeOverlay === service.id
-        ? "opacity-100 pointer-events-auto"
-        : "opacity-0 pointer-events-none"
-    }
-    md:group-hover:opacity-100 md:group-hover:pointer-events-auto
-  `}
+                    ${
+                      activeOverlay === service.id
+                        ? "opacity-100 pointer-events-auto"
+                        : "opacity-0 pointer-events-none"
+                    }
+                    md:group-hover:opacity-100 md:group-hover:pointer-events-auto
+                  `}
                 >
                   <button
                     onClick={() => handleBookAppointment(service.title)}
@@ -223,8 +275,9 @@ const OurServices = () => {
         </div>
       </div>
 
+      {/* Modal */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Overlay */}
           <div
             className="absolute inset-0 bg-black/70"
@@ -232,14 +285,45 @@ const OurServices = () => {
           />
 
           {/* Modal */}
-          <div className="relative bg-white max-w-2xl w-full mx-4 shadow-xl overflow-hidden z-10">
-            {/* Image */}
-            <div className="relative h-70">
-              <img
-                src={selectedService.image}
-                alt={selectedService.title}
-                className="w-full h-full object-cover"
-              />
+          <div className="relative bg-white max-w-2xl w-full shadow-xl overflow-hidden z-10 max-h-[90vh] overflow-y-auto">
+            {/* Media */}
+            <div className="relative h-80">
+              {selectedService.mediaType === "video" && (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src={selectedService.media} type="video/mp4" />
+                </video>
+              )}
+
+              {selectedService.mediaType === "image" && (
+                <img
+                  src={selectedService.media}
+                  alt={selectedService.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
+
+              {selectedService.mediaType === "none" && (
+                <div className="w-full h-full bg-gradient-to-br from-rose-200 via-rose-300 to-rose-400 flex items-center justify-center">
+                  <svg
+                    className="w-24 h-24 text-white opacity-40"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              )}
+
               <div className="absolute inset-0 bg-black/40 flex items-end p-6">
                 <h2 className="text-white text-3xl font-bold">
                   {selectedService.title}
@@ -265,17 +349,17 @@ const OurServices = () => {
               <div className="flex justify-between items-center">
                 <button
                   onClick={() => setSelectedService(null)}
-                  className="text-gray-500"
+                  className="text-gray-500 hover:text-gray-700"
                 >
                   Close
                 </button>
 
                 <button
-                    onClick={() => handleBookAppointment(selectedService.title)}
-                    className="bg-rose-400 border-2 border-white text-white px-6 py-2.5 hover:bg-rose-500  transition-all duration-300 text-sm font-medium"
-                  >
-                    Book Appointment
-                  </button>
+                  onClick={() => handleBookAppointment(selectedService.title)}
+                  className="bg-rose-400 text-white px-6 py-2.5 hover:bg-rose-500 transition-all duration-300 text-sm font-medium"
+                >
+                  Book Appointment
+                </button>
               </div>
             </div>
           </div>

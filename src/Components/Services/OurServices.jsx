@@ -1,8 +1,7 @@
 import React from "react";
-import { img1, img2, img3, img4 } from "../../imports";
+import { img1, img2, img3, img4, video4, video3, video2 } from "../../imports";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 
 const OurServices = () => {
   const [activeOverlay, setActiveOverlay] = useState(null);
@@ -11,112 +10,118 @@ const OurServices = () => {
   const services = [
     {
       id: 1,
-      image: img1,
+      media: video4,
+      mediaType: "video",
       title: "Simple Beat with Lashes",
       description: "Eye makeup focus with lash application",
       duration: "45 mins",
-      price: "$75",
+      price: "$100",
     },
     {
       id: 2,
-      image: img2,
+      media: video3,
+      mediaType: "video",
       title: "Full Face with Lashes",
       description: "Complete makeup coverage including lashes",
       duration: "60 mins",
-      price: "$95",
-    },
-    {
-      id: 3,
-      image: img2,
-      title: "Full Face with Lashes and Gele",
-      description: "Full makeup plus traditional gele styling",
-      duration: "90 mins",
-      price: "$145",
-    },
-    {
-      id: 4,
-      image: img4,
-      title: "Photoshoot Service",
-      description: "Professional makeup for photo sessions.",
-      duration: "74 mins",
       price: "$120",
     },
     {
+      id: 3,
+      media: img2,
+      mediaType: "image",
+      title: "Full Face with Lashes and Gele",
+      description: "Full makeup plus traditional gele styling",
+      duration: "90 mins",
+      price: "$140",
+    },
+    {
+      id: 4,
+      media: img4,
+      mediaType: "image",
+      title: "Photoshoot Service",
+      description: "Professional makeup for photo sessions.",
+      duration: "74 mins",
+      price: "$250-$540",
+    },
+    {
       id: 5,
-      image: img4,
+      media: video2,
+      mediaType: "video",
       title: "Home/Hotel Service Makeup",
       description: "On-location makeup service with travel.",
       duration: "60 mins",
-      price: "$110",
+      price: "Contact for Pricing",
     },
     {
       id: 6,
-      image: img1,
+      media: img1,
+      mediaType: "image",
       title: "Bridal Glam Consultation",
       description: "Pre-wedding makeup consultation and planning.",
       duration: "30 mins",
-      price: "$50",
+      price: "Contact for Pricing",
     },
     {
       id: 7,
-      image: img1,
+      media: video3,
+      mediaType: "video",
       title: "Bridal Glam",
       description: "Full bridal makeup application.",
       duration: "90 mins",
-      price: "$200",
+      price: "Starting at $500",
     },
     {
       id: 8,
-      image: img3,
+      mediaType: "none",
       title: "Bridal Party Glam Soft",
       description: "Soft glam makeup for bridesmaids.",
       duration: "60 mins",
-      price: "$85",
+      price: "Contact for Pricing",
     },
     {
       id: 9,
-      image: img3,
+      mediaType: "none",
       title: "Bridal Party Glam Full",
       description: "Full glam makeup for bridesmaids.",
       duration: "75 mins",
-      price: "$110",
+      price: "Contact for Pricing",
     },
     {
       id: 10,
-      image: img2,
+      mediaType: "none",
       title: "Bride Gele",
       description: "Traditional gele styling for bride.",
       duration: "45 mins",
-      price: "$80",
+      price: "Contact for Pricing",
     },
     {
       id: 11,
-      image: img2,
+      mediaType: "none",
       title: "Bridesmaid Gele",
       description: "Traditional gele styling for bridesmaids.",
       duration: "30 mins",
-      price: "$50",
+      price: "Contact for Pricing",
     },
     {
       id: 12,
-      image: img2,
+      mediaType: "none",
       title: "Owambe Gele",
       description: "Traditional gele for special occasions.",
       duration: "45 mins",
-      price: "$75",
+      price: "Contact for Pricing",
     },
     {
       id: 13,
-      image: img2,
+      mediaType: "none",
       title: "Mother of Bride/Groom Gele",
       description: "Traditional gele for mothers.",
       duration: "40 mins",
-      price: "$70",
+      price: "Contact for Pricing",
     },
   ];
 
   const handleBookAppointment = (serviceName) => {
-    // Navigate to terms page with the selected service
     navigate("/terms", { state: { selectedService: serviceName } });
   };
 
@@ -138,27 +143,63 @@ const OurServices = () => {
               key={service.id}
               className="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative h-94 md:h-102 overflow-hidden group">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  onClick={() =>
-                    setActiveOverlay(
-                      activeOverlay === service.id ? null : service.id,
-                    )
-                  }
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                />
+              <div className="relative h-64 md:h-72 overflow-hidden group">
+                {/* Video */}
+                {service.mediaType === "video" && (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    onClick={() =>
+                      setActiveOverlay(
+                        activeOverlay === service.id ? null : service.id
+                      )
+                    }
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  >
+                    <source src={service.media} type="video/mp4" />
+                  </video>
+                )}
 
+                {/* Image */}
+                {service.mediaType === "image" && (
+                  <img
+                    src={service.media}
+                    alt={service.title}
+                    onClick={() =>
+                      setActiveOverlay(
+                        activeOverlay === service.id ? null : service.id
+                      )
+                    }
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                )}
+
+                {/* No Media - Gradient Placeholder */}
+                {service.mediaType === "none" && (
+                  <div
+                    onClick={() =>
+                      setActiveOverlay(
+                        activeOverlay === service.id ? null : service.id
+                      )
+                    }
+                    className="w-full h-full bg-gradient-to-br from-rose-200 via-rose-300 to-rose-400 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                  >
+                    
+                  </div>
+                )}
+
+                {/* Overlay */}
                 <div
                   className={`absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300
-    ${
-      activeOverlay === service.id
-        ? "opacity-100 pointer-events-auto"
-        : "opacity-0 pointer-events-none"
-    }
-    md:group-hover:opacity-100 md:group-hover:pointer-events-auto
-  `}
+                    ${
+                      activeOverlay === service.id
+                        ? "opacity-100 pointer-events-auto"
+                        : "opacity-0 pointer-events-none"
+                    }
+                    md:group-hover:opacity-100 md:group-hover:pointer-events-auto
+                  `}
                 >
                   <button
                     onClick={() => handleBookAppointment(service.title)}
