@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const VideoWithFallback = ({ 
   src, 
@@ -10,23 +10,37 @@ const VideoWithFallback = ({
   loop = true,
   muted = true 
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const [hasError, setHasError] = useState(false);
   const videoRef = useRef(null);
 
-  const handleCanPlayThrough = () => {
-    // Video is fully loaded and ready to play
-    setIsLoaded(true);
+  useEffect(() => {
+    // Show video after 3 seconds
+    const timer = setTimeout(() => {
+      setShowVideo(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleLoadedData = () => {
+    // Video has loaded enough data to start playing
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Autoplay failed, but that's okay
+      });
+    }
   };
 
   const handleError = () => {
     setHasError(true);
+    setShowVideo(false);
   };
 
   return (
     <div className="relative w-full h-full" onClick={onClick}>
-      {/* Thumbnail - shows until video is loaded or if there's an error */}
-      {(!isLoaded || hasError) && (
+      {/* Thumbnail - shows for first 3 seconds or if there's an error */}
+      {(!showVideo || hasError) && (
         <img
           src={thumbnail}
           alt={alt}
@@ -34,7 +48,7 @@ const VideoWithFallback = ({
         />
       )}
 
-      {/* Video - always loading in background, becomes visible when ready */}
+      {/* Video - starts loading immediately, shows after 3 seconds */}
       {!hasError && (
         <video
           ref={videoRef}
@@ -44,20 +58,13 @@ const VideoWithFallback = ({
           playsInline
           preload="auto"
           className={`w-full h-full object-cover transition-opacity duration-700 ${className} ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
+            showVideo ? 'opacity-100' : 'opacity-0'
           }`}
-          onCanPlayThrough={handleCanPlayThrough}
+          onLoadedData={handleLoadedData}
           onError={handleError}
         >
           <source src={src} type="video/mp4" />
         </video>
-      )}
-
-      {/* Optional: Loading indicator */}
-      {!isLoaded && !hasError && (
-        <div className="absolute bottom-2 right-2 z-10">
-          {/* <div className="w-6 h-6 border-2 border-white/60 border-t-transparent rounded-full animate-spin" /> */}
-        </div>
       )}
     </div>
   );
