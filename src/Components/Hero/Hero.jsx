@@ -12,7 +12,13 @@ const Hero = () => {
           loop
           muted
           playsInline
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
           className='w-full h-full object-cover object-[50%_30%]'
+          style={{
+            pointerEvents: 'none'
+          }}
         >
           <source src={video1} type='video/mp4' />
         </video>
