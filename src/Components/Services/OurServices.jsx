@@ -21,9 +21,8 @@ const OurServices = () => {
     },
     {
       id: 2,
-      media: video3,
-      thumbnail: video3thumb,
-      mediaType: "video",
+      media: img3,
+      mediaType: "image",
       title: "Full Face with Lashes",
       description: "Complete makeup coverage including lashes",
       duration: "60 mins",
@@ -43,9 +42,9 @@ const OurServices = () => {
       media: img4,
       mediaType: "image",
       title: "Photoshoot Service",
-      description: "Make up with one outfit is $250 \nMake up with two outfits is $350 \nMake up with three outfits is $450",
-      duration: "74 mins",
-      price: "$250-$540",
+      description: "Makeup with one outfit is $250 \nMakeup with two outfits is $350 \nMakeup with three outfits is $450",
+      duration: "--",
+      price: "Starting at $250",  
     },
     {
       id: 5,
@@ -186,7 +185,7 @@ const OurServices = () => {
                         activeOverlay === service.id ? null : service.id
                       )
                     }
-                    className="w-full h-full bg-gradient-to-br from-rose-200 via-rose-300 to-rose-400 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full bg-linear-to-br from-rose-200 via-rose-300 to-rose-400 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300"
                   >
                     
                   </div>
